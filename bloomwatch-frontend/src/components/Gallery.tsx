@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { SuperbloomEventData } from './SuperbloomEvent';
 import Image from 'next/image';
 
-type ViewMode = 'satellite' | 'gallery';
+type ViewMode = 'satellite' | 'gallery' | 'graph';
 
 interface ImageViewProps {
   selectedEvent?: SuperbloomEventData | null;
@@ -14,6 +14,7 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
   const [viewMode, setViewMode] = useState<ViewMode>('satellite');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentSatelliteIndex, setCurrentSatelliteIndex] = useState(0);
+  const [currentGraphIndex, setCurrentGraphIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 });
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -24,13 +25,16 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
   useEffect(() => {
     setCurrentImageIndex(0);
     setCurrentSatelliteIndex(0);
+    setCurrentGraphIndex(0);
     setViewMode('satellite'); // Default to satellite view
     setIsZoomed(false);
     setImageLoaded(false);
   }, [selectedEvent?.id]);
 
   const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const hasImages = viewMode === 'gallery' ? selectedEvent?.images?.length : selectedEvent?.satelliteImages?.length;
+    const hasImages = viewMode === 'gallery' ? selectedEvent?.images?.length : 
+                     viewMode === 'satellite' ? selectedEvent?.satelliteImages?.length :
+                     selectedEvent?.graphImages?.length;
     if (!hasImages) return;
     
     if (!isZoomed) {
@@ -57,8 +61,10 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
   const goToImage = (index: number) => {
     if (viewMode === 'gallery') {
       setCurrentImageIndex(index);
-    } else {
+    } else if (viewMode === 'satellite') {
       setCurrentSatelliteIndex(index);
+    } else {
+      setCurrentGraphIndex(index);
     }
     setIsZoomed(false);
     setImageLoaded(false);
@@ -69,10 +75,14 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
       if (!selectedEvent?.images?.length) return;
       const newIndex = currentImageIndex === 0 ? selectedEvent.images.length - 1 : currentImageIndex - 1;
       setCurrentImageIndex(newIndex);
-    } else {
+    } else if (viewMode === 'satellite') {
       if (!selectedEvent?.satelliteImages?.length) return;
       const newIndex = currentSatelliteIndex === 0 ? selectedEvent.satelliteImages.length - 1 : currentSatelliteIndex - 1;
       setCurrentSatelliteIndex(newIndex);
+    } else {
+      if (!selectedEvent?.graphImages?.length) return;
+      const newIndex = currentGraphIndex === 0 ? selectedEvent.graphImages.length - 1 : currentGraphIndex - 1;
+      setCurrentGraphIndex(newIndex);
     }
     setIsZoomed(false);
     setImageLoaded(false);
@@ -83,10 +93,14 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
       if (!selectedEvent?.images?.length) return;
       const newIndex = currentImageIndex === selectedEvent.images.length - 1 ? 0 : currentImageIndex + 1;
       setCurrentImageIndex(newIndex);
-    } else {
+    } else if (viewMode === 'satellite') {
       if (!selectedEvent?.satelliteImages?.length) return;
       const newIndex = currentSatelliteIndex === selectedEvent.satelliteImages.length - 1 ? 0 : currentSatelliteIndex + 1;
       setCurrentSatelliteIndex(newIndex);
+    } else {
+      if (!selectedEvent?.graphImages?.length) return;
+      const newIndex = currentGraphIndex === selectedEvent.graphImages.length - 1 ? 0 : currentGraphIndex + 1;
+      setCurrentGraphIndex(newIndex);
     }
     setIsZoomed(false);
     setImageLoaded(false);
@@ -101,7 +115,7 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentImageIndex, currentSatelliteIndex, selectedEvent, viewMode]);
+  }, [currentImageIndex, currentSatelliteIndex, currentGraphIndex, selectedEvent, viewMode]);
 
   if (!selectedEvent) {
     return (
@@ -136,47 +150,22 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
 
   const images = selectedEvent.images || [];
   const satelliteImages = selectedEvent.satelliteImages || [];
+  const graphImages = selectedEvent.graphImages || [];
   
-  const currentData = viewMode === 'gallery' ? images : satelliteImages;
-  const currentIndex = viewMode === 'gallery' ? currentImageIndex : currentSatelliteIndex;
-  const currentImage = viewMode === 'gallery' 
-    ? images[currentImageIndex] 
-    : satelliteImages[currentSatelliteIndex]?.image;
+  const currentData = viewMode === 'gallery' ? images : 
+                     viewMode === 'satellite' ? satelliteImages :
+                     graphImages;
+  const currentIndex = viewMode === 'gallery' ? currentImageIndex : 
+                      viewMode === 'satellite' ? currentSatelliteIndex :
+                      currentGraphIndex;
+  const currentImage = viewMode === 'gallery' ? images[currentImageIndex] : 
+                      viewMode === 'satellite' ? satelliteImages[currentSatelliteIndex]?.image :
+                      graphImages[currentGraphIndex]?.image;
 
   return (
     <div className="h-full bg-white dark:bg-gray-800 rounded-lg shadow-md flex flex-col">
       {/* Header with Tabs */}
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-        <div className="flex items-center justify-between mb-3">
-          <div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Image View
-            </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {selectedEvent.title}
-            </p>
-          </div>
-          
-          {currentData.length > 0 && (
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                {currentIndex + 1} of {currentData.length}
-              </span>
-              {isZoomed && (
-                <button
-                  onClick={() => setIsZoomed(false)}
-                  className="p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                  title="Exit zoom"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </button>
-              )}
-            </div>
-          )}
-        </div>
-
+      <div className="p-4 border-b border-gray-200 dark:border-gray-800">
         {/* Tab Navigation */}
         <div className="flex gap-1 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
           <button
@@ -199,6 +188,18 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
           >
             🖼️ Gallery
           </button>
+          {graphImages.length > 0 && (
+            <button
+              onClick={() => setViewMode('graph')}
+              className={`flex-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                viewMode === 'graph'
+                  ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
+                  : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+              }`}
+            >
+              📊 Graph
+            </button>
+          )}
         </div>
       </div>
 
@@ -209,7 +210,7 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
             {/* Image Container */}
             <div
               ref={containerRef}
-              className={`relative w-full h-full bg-gray-100 dark:bg-gray-700 cursor-${isZoomed ? 'zoom-out' : 'zoom-in'} overflow-hidden`}
+              className={`relative w-full h-full bg-gray-100 dark:bg-gray-800 cursor-${isZoomed ? 'zoom-out' : 'zoom-in'} overflow-hidden`}
               onClick={handleImageClick}
               onMouseMove={handleMouseMove}
             >
@@ -228,7 +229,11 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
                 <Image
                   ref={imageRef}
                   src={currentImage}
-                  alt={`${selectedEvent.title} - ${viewMode === 'satellite' ? `Satellite ${satelliteImages[currentSatelliteIndex]?.year}` : `Image ${currentImageIndex + 1}`}`}
+                  alt={`${selectedEvent.title} - ${
+                    viewMode === 'satellite' ? `Satellite ${satelliteImages[currentSatelliteIndex]?.year}` : 
+                    viewMode === 'gallery' ? `Image ${currentImageIndex + 1}` :
+                    graphImages[currentGraphIndex]?.title || `Graph ${currentGraphIndex + 1}`
+                  }`}
                   fill
                   className="object-contain"
                   onLoad={() => setImageLoaded(true)}
@@ -297,7 +302,7 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
 
       {/* Navigation Bar */}
       {currentData.length > 1 && (
-        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="p-4 border-t border-gray-200 dark:border-gray-800">
           {viewMode === 'satellite' ? (
             /* Satellite View - Year Navigation */
             <>
@@ -334,7 +339,7 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
                 </div>
               </div>
             </>
-          ) : (
+          ) : viewMode === 'gallery' ? (
             /* Gallery View - Image Thumbnails */
             <>
               <div className="flex items-center justify-center gap-2 overflow-x-auto max-w-full">
@@ -374,6 +379,52 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
                       key={index}
                       className={`w-2 h-2 rounded-full ${
                         index === currentImageIndex ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </>
+          ) : (
+            /* Graph View - Graph Thumbnails */
+            <>
+              <div className="flex items-center justify-center gap-2 overflow-x-auto max-w-full">
+                {graphImages.map((graphImage, index: number) => (
+                  <button
+                    key={index}
+                    onClick={() => goToImage(index)}
+                    className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
+                      index === currentGraphIndex
+                        ? 'border-blue-500 ring-2 ring-blue-200'
+                        : 'border-gray-300 dark:border-gray-600 hover:border-gray-400'
+                    }`}
+                    title={graphImage.title || `View graph ${index + 1}`}
+                  >
+                    <Image
+                      src={graphImage.image}
+                      alt={`Graph thumbnail ${index + 1}`}
+                      width={64}
+                      height={48}
+                      className="w-full h-full object-cover"
+                      unoptimized={graphImage.image.startsWith('http')}
+                      onError={(e) => {
+                        console.error('Failed to load graph thumbnail:', graphImage.image);
+                      }}
+                    />
+                  </button>
+                ))}
+              </div>
+              
+              <div className="flex items-center justify-between mt-3">
+                <div className="text-xs text-gray-500 dark:text-gray-400">  
+                  Use arrow keys or click thumbnails to navigate graphs
+                </div>
+                <div className="flex items-center gap-1">
+                  {graphImages.map((_: any, index: number) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full ${
+                        index === currentGraphIndex ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
                       }`}
                     />
                   ))}

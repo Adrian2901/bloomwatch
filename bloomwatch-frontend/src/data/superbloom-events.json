@@ -37,6 +37,18 @@
         "year": 2025,
         "image": "/images/desert-bloom-4.jpg"
       }
+    ],
+    "graphImages": [
+      {
+        "year": 2023,
+        "image": "/images/desert-graph-1.jpg",
+        "title": "Bloom Coverage Analysis"
+      },
+      {
+        "year": 2024,
+        "image": "/images/desert-graph-2.jpg",
+        "title": "Temperature vs Bloom Density"
+      }
     ]
   },
   {

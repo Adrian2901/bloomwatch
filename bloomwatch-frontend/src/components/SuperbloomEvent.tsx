@@ -24,6 +24,11 @@ export interface SuperbloomEventData {
     year: number;
     image: string;
   }[];
+  graphImages?: {
+    year: number;
+    image: string;
+    title?: string;
+  }[];
 }
 
 interface SuperbloomEventProps {

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import SuperbloomEvent, { SuperbloomEventData } from './SuperbloomEvent';
 import superbloomData from '../data/superbloom-events.json';
+import { getBloomStatus } from '../utils/bloomStatus';
 
 interface EventsListProps {
   onEventFocus?: (event: SuperbloomEventData) => void;
@@ -11,7 +12,7 @@ interface EventsListProps {
 
 export default function EventsList({ onEventFocus, selectedEventId }: EventsListProps) {
   const [events, setEvents] = useState<SuperbloomEventData[]>([]);
-  const [filter, setFilter] = useState<'all' | 'active' | 'inactive'>('all');
+  const [filter, setFilter] = useState<'all' | 'active' | 'soon' | 'inactive'>('all');
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -20,9 +21,11 @@ export default function EventsList({ onEventFocus, selectedEventId }: EventsList
   }, []);
 
   const filteredEvents = events.filter(event => {
+    const bloomStatus = getBloomStatus(event.peakTimeInterval);
     const matchesFilter = filter === 'all' || 
-      (filter === 'active' && event.isActive) || 
-      (filter === 'inactive' && !event.isActive);
+      (filter === 'active' && bloomStatus.status === 'active') || 
+      (filter === 'soon' && bloomStatus.status === 'upcoming' && bloomStatus.daysUntil && bloomStatus.daysUntil <= 50) ||
+      (filter === 'inactive' && (bloomStatus.status === 'past' || (bloomStatus.status === 'upcoming' && bloomStatus.daysUntil && bloomStatus.daysUntil > 50)));
     
     const matchesSearch = searchTerm === '' || 
       event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -65,6 +68,7 @@ export default function EventsList({ onEventFocus, selectedEventId }: EventsList
           {[
             { key: 'all' as const, label: 'All Events' },
             { key: 'active' as const, label: 'Active' },
+            { key: 'soon' as const, label: 'Soon' },
             { key: 'inactive' as const, label: 'Inactive' }
           ].map(({ key, label }) => (
             <button
