@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Tag from './Tag';
+import { getBloomStatus } from '../utils/bloomStatus';
 
 export interface SuperbloomEventData {
   id: number;
@@ -16,6 +17,7 @@ export interface SuperbloomEventData {
   tags: string[];
   season: string;
   peakTime: string;
+  peakTimeInterval: [string, string];
   isActive: boolean;
   images?: string[];
   satelliteImages?: {
@@ -32,6 +34,7 @@ interface SuperbloomEventProps {
 
 export default function SuperbloomEvent({ event, onFocus, isSelected = false }: SuperbloomEventProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const bloomStatus = getBloomStatus(event.peakTimeInterval);
 
   const handleClick = () => {
     setIsExpanded(!isExpanded);
@@ -65,9 +68,15 @@ export default function SuperbloomEvent({ event, onFocus, isSelected = false }: 
             </div>
           </div>
           <div className="flex items-center gap-2 ml-4">
-            <div className={`w-3 h-3 rounded-full ${event.isActive ? 'bg-green-500' : 'bg-gray-400'}`} />
+            <div className={`w-3 h-3 rounded-full ${
+              bloomStatus.status === 'active' ? 'bg-green-500' : 
+              bloomStatus.status === 'upcoming' && bloomStatus.daysUntil && bloomStatus.daysUntil <= 50 ? 'bg-yellow-500' : 
+              'bg-gray-400'
+            }`} />
             <span className="text-xs text-gray-500 dark:text-gray-400">
-              {event.isActive ? 'Active' : 'Inactive'}
+              {bloomStatus.status === 'active' ? 'Active' : 
+               bloomStatus.status === 'upcoming' && bloomStatus.daysUntil && bloomStatus.daysUntil <= 50 ? `In ${bloomStatus.daysUntil} days` : 
+               'Inactive'}
             </span>
           </div>
         </div>

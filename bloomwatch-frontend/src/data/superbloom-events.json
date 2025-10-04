@@ -9,9 +9,10 @@
     },
     "shortDescription": "Spectacular display of desert wildflowers covering over 1,000 acres.",
     "fullDescription": "An extraordinary superbloom event featuring vibrant desert marigolds, ghost flowers, and desert lupine spreading across the desert floor. This rare phenomenon occurs when winter rains provide the perfect conditions for wildflower seeds that have been dormant for years. The bloom creates a stunning carpet of yellow, purple, and white flowers that can be seen from space. Peak viewing is expected to last for 2-3 weeks, with the best colors visible in early morning and late afternoon light.",
-    "tags": ["Rare", "Desert"],
+    "tags": ["Superbloom", "Desert"],
     "season": "Spring",
     "peakTime": "March 15 - April 5",
+    "peakTimeInterval": ["2025-03-15", "2025-04-05"],
     "isActive": true,
     "images": [
       "/images/cali-bloom.avif",
@@ -48,9 +49,10 @@
     },
     "shortDescription": "Miles of brilliant orange California poppies in full bloom.",
     "fullDescription": "The annual California poppy bloom in Antelope Valley creates one of the most photographed natural displays in the state. Covering nearly 1,700 acres, the vibrant orange blooms create rolling waves of color across the valley floor. This superbloom is particularly special due to above-average rainfall this winter, resulting in the densest poppy coverage seen in over a decade. Visitors can walk among designated trails to experience the full beauty of California's state flower.",
-    "tags": ["Common", "Valley"],
+    "tags": ["Superbloom", "Valley"],
     "season": "Spring",
     "peakTime": "April 1 - April 20",
+    "peakTimeInterval": ["2025-04-01", "2025-04-20"],
     "isActive": true,
     "images": [
       "/images/cali-bloom.avif",
@@ -74,103 +76,230 @@
   },
   {
     "id": 3,
-    "title": "Alpine Meadow Burst",
-    "location": "Mount Rainier National Park, WA",
+    "title": "Valley of Flowers",
+    "location": "Valley of Flowers National Park, Uttarakhand, India",
     "coordinates": {
-      "lat": 46.8523,
-      "lng": -121.7603
+      "lat": 30.7268,
+      "lng": 79.6069
     },
-    "shortDescription": "High-altitude wildflower meadows with rare alpine species.",
-    "fullDescription": "At elevations above 5,000 feet, Mount Rainier's alpine meadows are experiencing an exceptional wildflower bloom. The display includes rare species like Rainier pleated gentian, Tolmie's saxifrage, and vibrant Indian paintbrush. This high-altitude ecosystem only blooms for a brief window each year, making this superbloom particularly precious. The combination of late snowmelt and warm spring temperatures has created ideal conditions for this breathtaking display against the backdrop of glaciated peaks.",
-    "tags": ["Super Rare", "Alpine"],
-    "season": "Summer",
-    "peakTime": "July 10 - August 5",
-    "isActive": false,
+    "shortDescription": "UNESCO World Heritage site featuring over 600 alpine flower species.",
+    "fullDescription": "The Valley of Flowers is a breathtaking high-altitude Himalayan valley renowned for its endemic flora and spectacular meadows of alpine flowers. This UNESCO World Heritage site comes alive during the monsoon season with a carpet of vibrant wildflowers including blue poppies, brahma kamals, cobra lilies, and primulas. Located at an elevation of 3,658 meters, the valley transforms into a natural botanical garden spanning over 87 square kilometers. The best viewing requires a challenging trek, but rewards visitors with one of the most spectacular floral displays on Earth.",
+    "tags": ["Yearly", "Alpine", "UNESCO"],
+    "season": "Monsoon",
+    "peakTime": "July 15 - August 31",
+    "peakTimeInterval": ["2025-07-15", "2025-08-31"],
+    "isActive": true,
     "images": [
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif"
+      "/images/valley-flowers-1.jpg",
+      "/images/valley-flowers-2.jpg",
+      "/images/valley-flowers-3.jpg",
+      "/images/valley-flowers-4.jpg"
     ],
     "satelliteImages": [
       {
-        "year": 2018,
-        "image": "/images/alpine-meadow-1.jpg"
+        "year": 2020,
+        "image": "/images/valley-flowers-sat-1.jpg"
       },
       {
-        "year": 2021,
-        "image": "/images/alpine-meadow-2.jpg"
+        "year": 2022,
+        "image": "/images/valley-flowers-sat-2.jpg"
       },
       {
         "year": 2024,
-        "image": "/images/alpine-meadow-3.jpg"
+        "image": "/images/valley-flowers-sat-3.jpg"
       }
     ]
   },
   {
     "id": 4,
-    "title": "Coastal Lupine Festival",
-    "location": "Big Sur Coast, CA",
+    "title": "Death Valley Superbloom",
+    "location": "Death Valley National Park, CA",
     "coordinates": {
-      "lat": 36.2704,
-      "lng": -121.8081
+      "lat": 36.5323,
+      "lng": -116.9325
     },
-    "shortDescription": "Purple lupine spikes covering coastal bluffs and hillsides.",
-    "fullDescription": "The rugged Big Sur coastline is adorned with thousands of purple lupine spikes creating a stunning contrast against the deep blue Pacific Ocean. This year's bloom is particularly impressive due to optimal growing conditions. The lupine creates natural wildlife corridors and provides essential habitat for native butterflies and hummingbirds. Visitors can enjoy this spectacular display while hiking the coastal trails, with the added bonus of whale watching from the flower-covered bluffs.",
-    "tags": ["In Danger", "Coastal"],
+    "shortDescription": "Rare wildflower explosion in one of Earth's most extreme environments.",
+    "fullDescription": "Death Valley's rare superbloom is one of nature's most spectacular surprises, occurring only when perfect conditions align. This extraordinary event transforms the desert floor into a vibrant carpet of desert gold, ghost flower, and purple-stemmed desert lupine. The phenomenon requires precise timing of winter rains, warm spring temperatures, and minimal wind. When it occurs, millions of wildflower seeds that have lain dormant for years suddenly burst to life, creating a stunning contrast against the stark landscape. The blooms typically last only 2-4 weeks, making this one of the rarest and most sought-after natural spectacles in North America.",
+    "tags": ["Superbloom", "Desert", "Rare"],
     "season": "Spring",
-    "peakTime": "May 1 - June 15",
-    "isActive": true,
+    "peakTime": "February 20 - March 20",
+    "peakTimeInterval": ["2025-02-20", "2025-03-20"],
+    "isActive": false,
     "images": [
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif"
+      "/images/death-valley-1.jpg",
+      "/images/death-valley-2.jpg",
+      "/images/death-valley-3.jpg",
+      "/images/death-valley-4.jpg"
+    ],
+    "satelliteImages": [
+      {
+        "year": 2016,
+        "image": "/images/death-valley-sat-1.jpg"
+      },
+      {
+        "year": 2019,
+        "image": "/images/death-valley-sat-2.jpg"
+      },
+      {
+        "year": 2023,
+        "image": "/images/death-valley-sat-3.jpg"
+      }
     ]
   },
   {
     "id": 5,
-    "title": "Sunflower Sea",
-    "location": "North Dakota Prairie",
+    "title": "Carrizo Plain Wildflower Display",
+    "location": "Carrizo Plain National Monument, CA",
     "coordinates": {
-      "lat": 47.5515,
-      "lng": -100.7837
+      "lat": 35.2225,
+      "lng": -119.5871
     },
-    "shortDescription": "Endless fields of wild sunflowers stretching to the horizon.",
-    "fullDescription": "North Dakota's prairie landscape transforms into a golden sea of wild sunflowers during this remarkable superbloom. Stretching for miles in every direction, the sunflowers create a mesmerizing pattern that shifts with the wind. This bloom is particularly significant as it supports migrating bird populations and provides crucial habitat for native pollinators. The display is at its most spectacular during golden hour, when the flowers seem to glow against the big prairie sky.",
-    "tags": ["Common", "Prairie"],
-    "season": "Summer",
-    "peakTime": "August 15 - September 10",
-    "isActive": false,
+    "shortDescription": "California's largest remaining natural grassland transforms into a wildflower paradise.",
+    "fullDescription": "The Carrizo Plain, often called 'California's Serengeti,' becomes a spectacular wildflower showcase during optimal spring conditions. This vast grassland ecosystem bursts with vibrant displays of California poppies, lupines, goldfields, and purple owl's clover. The plain's unique topography creates microclimates that support diverse wildflower communities, from valley floors carpeted in orange poppies to hillsides painted purple with lupines. The bloom's intensity varies dramatically year to year, depending on winter rainfall patterns, making exceptional years truly spectacular events that draw photographers and botanists from around the world.",
+    "tags": ["Superbloom", "Grassland"],
+    "season": "Spring",
+    "peakTime": "March 25 - April 30",
+    "peakTimeInterval": ["2025-03-25", "2025-04-30"],
+    "isActive": true,
     "images": [
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif"
+      "/images/carrizo-plain-1.jpg",
+      "/images/carrizo-plain-2.jpg",
+      "/images/carrizo-plain-3.jpg",
+      "/images/carrizo-plain-4.jpg",
+      "/images/carrizo-plain-5.jpg"
+    ],
+    "satelliteImages": [
+      {
+        "year": 2017,
+        "image": "/images/carrizo-plain-sat-1.jpg"
+      },
+      {
+        "year": 2019,
+        "image": "/images/carrizo-plain-sat-2.jpg"
+      },
+      {
+        "year": 2023,
+        "image": "/images/carrizo-plain-sat-3.jpg"
+      },
+      {
+        "year": 2025,
+        "image": "/images/carrizo-plain-sat-4.jpg"
+      }
     ]
   },
   {
     "id": 6,
-    "title": "Bluebonnet Bonanza",
-    "location": "Texas Hill Country",
+    "title": "Atacama Desert Bloom",
+    "location": "Atacama Desert, Chile",
     "coordinates": {
-      "lat": 30.2672,
-      "lng": -98.7453
+      "lat": -24.5000,
+      "lng": -69.2500
     },
-    "shortDescription": "Texas state flower creating blue carpets across rolling hills.",
-    "fullDescription": "The iconic Texas bluebonnets are putting on their annual show across the Hill Country, with this year's display being one of the most impressive in recent memory. The rolling hills are covered in dense patches of deep blue flowers, interspersed with Indian paintbrush creating striking red and blue combinations. This superbloom represents not just natural beauty but also Texas heritage and pride. The cool, wet winter followed by warm spring temperatures has created perfect conditions for this beloved wildflower spectacle.",
-    "tags": ["Rare", "Hill Country"],
+    "shortDescription": "World's driest desert transforms into a colorful carpet of wildflowers.",
+    "fullDescription": "The Atacama Desert bloom, known locally as 'Desierto Florido,' is one of the world's most extraordinary natural phenomena. This rare event occurs in the world's driest non-polar desert when unusual rainfall awakens millions of dormant seeds. The desert floor explodes with vibrant displays of purple and white añañuca, yellow desert marigolds, and pink cristaria. This spectacular transformation happens roughly every 5-7 years when El Niño brings sufficient rainfall to the region. The blooms create a surreal landscape that attracts visitors from around the globe to witness this miraculous desert awakening.",
+    "tags": ["Superbloom", "Desert", "Rare"],
     "season": "Spring",
-    "peakTime": "March 20 - April 15",
+    "peakTime": "September 15 - November 15",
+    "peakTimeInterval": ["2025-09-15", "2025-11-15"],
+    "isActive": false,
+    "images": [
+      "/images/atacama-bloom-1.jpg",
+      "/images/atacama-bloom-2.jpg",
+      "/images/atacama-bloom-3.jpg",
+      "/images/atacama-bloom-4.jpg"
+    ],
+    "satelliteImages": [
+      {
+        "year": 2015,
+        "image": "/images/atacama-sat-1.jpg"
+      },
+      {
+        "year": 2017,
+        "image": "/images/atacama-sat-2.jpg"
+      },
+      {
+        "year": 2022,
+        "image": "/images/atacama-sat-3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Namaqualand Daisy Spectacle",
+    "location": "Namaqualand, South Africa",
+    "coordinates": {
+      "lat": -30.1500,
+      "lng": 17.9000
+    },
+    "shortDescription": "Semi-arid region transforms into a vibrant carpet of indigenous daisies and succulents.",
+    "fullDescription": "Namaqualand's annual flower season is one of South Africa's most celebrated natural spectacles. This semi-arid region bursts into life with millions of indigenous daisies, including the iconic orange Namaqualand daisy, creating vast carpets of color that stretch to the horizon. The display also features over 4,000 plant species, many endemic to the region, including colorful mesembs, vygies, and aloes. The phenomenon is triggered by winter rains and warm spring temperatures, typically peaking in late August to early September. The flowers have evolved to open only in bright sunlight, creating daily cycles of color that make each viewing unique.",
+    "tags": ["Yearly", "Semi-arid"],
+    "season": "Spring",
+    "peakTime": "August 20 - September 30",
+    "peakTimeInterval": ["2025-08-20", "2025-09-30"],
     "isActive": true,
     "images": [
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif"
+      "/images/namaqualand-1.jpg",
+      "/images/namaqualand-2.jpg",
+      "/images/namaqualand-3.jpg",
+      "/images/namaqualand-4.jpg",
+      "/images/namaqualand-5.jpg"
+    ],
+    "satelliteImages": [
+      {
+        "year": 2021,
+        "image": "/images/namaqualand-sat-1.jpg"
+      },
+      {
+        "year": 2023,
+        "image": "/images/namaqualand-sat-2.jpg"
+      },
+      {
+        "year": 2024,
+        "image": "/images/namaqualand-sat-3.jpg"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Keukenhof Gardens",
+    "location": "Keukenhof, Netherlands",
+    "coordinates": {
+      "lat": 52.2720,
+      "lng": 4.5462
+    },
+    "shortDescription": "World's largest flower garden featuring millions of tulips, daffodils, and hyacinths.",
+    "fullDescription": "Keukenhof, known as the 'Garden of Europe,' is the world's largest flower garden and one of the most photographed places on Earth. Each spring, over 7 million flower bulbs bloom across 79 acres, creating stunning displays of tulips, daffodils, hyacinths, and other spring bulbs. The garden features meticulously designed themed areas, including formal gardens, natural landscapes, and artistic installations. Beyond the planted displays, visitors can explore historic windmills, pavilions showcasing the latest flower varieties, and walking paths that wind through forests of flowering trees. The garden is open for just eight weeks each year, making it a concentrated celebration of spring's arrival in the Netherlands.",
+    "tags": ["Yearly", "Cultivated"],
+    "season": "Spring",
+    "peakTime": "April 15 - May 10",
+    "peakTimeInterval": ["2025-04-15", "2025-05-10"],
+    "isActive": true,
+    "images": [
+      "/images/keukenhof-1.jpg",
+      "/images/keukenhof-2.jpg",
+      "/images/keukenhof-3.jpg",
+      "/images/keukenhof-4.jpg",
+      "/images/keukenhof-5.jpg",
+      "/images/keukenhof-6.jpg"
+    ],
+    "satelliteImages": [
+      {
+        "year": 2022,
+        "image": "/images/keukenhof-sat-1.jpg"
+      },
+      {
+        "year": 2023,
+        "image": "/images/keukenhof-sat-2.jpg"
+      },
+      {
+        "year": 2024,
+        "image": "/images/keukenhof-sat-3.jpg"
+      },
+      {
+        "year": 2025,
+        "image": "/images/keukenhof-sat-4.jpg"
+      }
     ]
   }
 ]

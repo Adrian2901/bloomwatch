@@ -16,27 +16,13 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="px-4 lg:px-6 py-4">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 lg:gap-4">
-            <div>
-              <h1 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">
-                BloomWatch
-              </h1>
-              <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                Track and explore superbloom events across the globe
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="text-xs lg:text-sm text-gray-500 dark:text-gray-400 truncate">
-                {selectedEvent ? (
-                  <span className="hidden sm:inline">Viewing: {selectedEvent.title}</span>
-                ) : (
-                  <span className="hidden sm:inline">Select an event to view images</span>
-                )}
-                {selectedEvent && (
-                  <span className="sm:hidden">🛰️ {selectedEvent.title}</span>
-                )}
-              </div>
-            </div>
+          <div className="flex flex-col items-center justify-center text-center">
+            <h1 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white" style={{fontFamily: 'Pacifico, cursive'}}>
+              BloomWatch
+            </h1>
+            <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mt-1">
+              Track and explore superbloom events across the globe
+            </p>
           </div>
         </div>
       </header>
