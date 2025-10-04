@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Desert Wildflower Explosion",
+    "location": "Anza-Borrego Desert State Park, CA",
+    "coordinates": {
+      "lat": 33.2568,
+      "lng": -116.4017
+    },
+    "shortDescription": "Spectacular display of desert wildflowers covering over 1,000 acres.",
+    "fullDescription": "An extraordinary superbloom event featuring vibrant desert marigolds, ghost flowers, and desert lupine spreading across the desert floor. This rare phenomenon occurs when winter rains provide the perfect conditions for wildflower seeds that have been dormant for years. The bloom creates a stunning carpet of yellow, purple, and white flowers that can be seen from space. Peak viewing is expected to last for 2-3 weeks, with the best colors visible in early morning and late afternoon light.",
+    "tags": ["Rare", "Desert"],
+    "season": "Spring",
+    "peakTime": "March 15 - April 5",
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "title": "Poppy Fields Phenomenon",
+    "location": "Antelope Valley, CA",
+    "coordinates": {
+      "lat": 34.7353,
+      "lng": -118.1256
+    },
+    "shortDescription": "Miles of brilliant orange California poppies in full bloom.",
+    "fullDescription": "The annual California poppy bloom in Antelope Valley creates one of the most photographed natural displays in the state. Covering nearly 1,700 acres, the vibrant orange blooms create rolling waves of color across the valley floor. This superbloom is particularly special due to above-average rainfall this winter, resulting in the densest poppy coverage seen in over a decade. Visitors can walk among designated trails to experience the full beauty of California's state flower.",
+    "tags": ["Common", "Valley"],
+    "season": "Spring",
+    "peakTime": "April 1 - April 20",
+    "isActive": true
+  },
+  {
+    "id": 3,
+    "title": "Alpine Meadow Burst",
+    "location": "Mount Rainier National Park, WA",
+    "coordinates": {
+      "lat": 46.8523,
+      "lng": -121.7603
+    },
+    "shortDescription": "High-altitude wildflower meadows with rare alpine species.",
+    "fullDescription": "At elevations above 5,000 feet, Mount Rainier's alpine meadows are experiencing an exceptional wildflower bloom. The display includes rare species like Rainier pleated gentian, Tolmie's saxifrage, and vibrant Indian paintbrush. This high-altitude ecosystem only blooms for a brief window each year, making this superbloom particularly precious. The combination of late snowmelt and warm spring temperatures has created ideal conditions for this breathtaking display against the backdrop of glaciated peaks.",
+    "tags": ["Super Rare", "Alpine"],
+    "season": "Summer",
+    "peakTime": "July 10 - August 5",
+    "isActive": false
+  },
+  {
+    "id": 4,
+    "title": "Coastal Lupine Festival",
+    "location": "Big Sur Coast, CA",
+    "coordinates": {
+      "lat": 36.2704,
+      "lng": -121.8081
+    },
+    "shortDescription": "Purple lupine spikes covering coastal bluffs and hillsides.",
+    "fullDescription": "The rugged Big Sur coastline is adorned with thousands of purple lupine spikes creating a stunning contrast against the deep blue Pacific Ocean. This year's bloom is particularly impressive due to optimal growing conditions. The lupine creates natural wildlife corridors and provides essential habitat for native butterflies and hummingbirds. Visitors can enjoy this spectacular display while hiking the coastal trails, with the added bonus of whale watching from the flower-covered bluffs.",
+    "tags": ["In Danger", "Coastal"],
+    "season": "Spring",
+    "peakTime": "May 1 - June 15",
+    "isActive": true
+  },
+  {
+    "id": 5,
+    "title": "Sunflower Sea",
+    "location": "North Dakota Prairie",
+    "coordinates": {
+      "lat": 47.5515,
+      "lng": -100.7837
+    },
+    "shortDescription": "Endless fields of wild sunflowers stretching to the horizon.",
+    "fullDescription": "North Dakota's prairie landscape transforms into a golden sea of wild sunflowers during this remarkable superbloom. Stretching for miles in every direction, the sunflowers create a mesmerizing pattern that shifts with the wind. This bloom is particularly significant as it supports migrating bird populations and provides crucial habitat for native pollinators. The display is at its most spectacular during golden hour, when the flowers seem to glow against the big prairie sky.",
+    "tags": ["Common", "Prairie"],
+    "season": "Summer",
+    "peakTime": "August 15 - September 10",
+    "isActive": false
+  },
+  {
+    "id": 6,
+    "title": "Bluebonnet Bonanza",
+    "location": "Texas Hill Country",
+    "coordinates": {
+      "lat": 30.2672,
+      "lng": -98.7453
+    },
+    "shortDescription": "Texas state flower creating blue carpets across rolling hills.",
+    "fullDescription": "The iconic Texas bluebonnets are putting on their annual show across the Hill Country, with this year's display being one of the most impressive in recent memory. The rolling hills are covered in dense patches of deep blue flowers, interspersed with Indian paintbrush creating striking red and blue combinations. This superbloom represents not just natural beauty but also Texas heritage and pride. The cool, wet winter followed by warm spring temperatures has created perfect conditions for this beloved wildflower spectacle.",
+    "tags": ["Rare", "Hill Country"],
+    "season": "Spring",
+    "peakTime": "March 20 - April 15",
+    "isActive": true
+  }
+]
