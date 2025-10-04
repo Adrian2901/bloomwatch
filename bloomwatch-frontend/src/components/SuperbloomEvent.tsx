@@ -17,6 +17,11 @@ export interface SuperbloomEventData {
   season: string;
   peakTime: string;
   isActive: boolean;
+  images?: string[];
+  satelliteImages?: {
+    year: number;
+    image: string;
+  }[];
 }
 
 interface SuperbloomEventProps {

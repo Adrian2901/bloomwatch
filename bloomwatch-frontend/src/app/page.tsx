@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import EventsList from '../components/EventsList';
-import Map from '../components/Map';
+import ImageView from '../components/Gallery';
 import { SuperbloomEventData } from '../components/SuperbloomEvent';
 
 export default function Home() {
@@ -14,7 +14,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
-      {/* Header */}
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="px-4 lg:px-6 py-4">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 lg:gap-4">
@@ -31,10 +30,10 @@ export default function Home() {
                 {selectedEvent ? (
                   <span className="hidden sm:inline">Viewing: {selectedEvent.title}</span>
                 ) : (
-                  <span className="hidden sm:inline">Select an event to focus on the map</span>
+                  <span className="hidden sm:inline">Select an event to view images</span>
                 )}
                 {selectedEvent && (
-                  <span className="sm:hidden">📍 {selectedEvent.title}</span>
+                  <span className="sm:hidden">🛰️ {selectedEvent.title}</span>
                 )}
               </div>
             </div>
@@ -42,9 +41,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Main content with 30-70 split */}
       <main className="flex flex-col lg:flex-row h-[calc(100vh-80px)]">
-        {/* Left sidebar - Events list (30% on desktop, full width on mobile) */}
         <div className="w-full lg:w-[30%] lg:min-w-[350px] border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-gray-700 h-1/2 lg:h-full">
           <EventsList 
             onEventFocus={handleEventFocus}
@@ -52,11 +49,9 @@ export default function Home() {
           />
         </div>
 
-        {/* Right main area - Map (70% on desktop, full width on mobile) */}
         <div className="flex-1 p-2 lg:p-4 h-1/2 lg:h-full">
-          <Map 
+          <ImageView 
             selectedEvent={selectedEvent}
-            onEventSelect={setSelectedEvent}
           />
         </div>
       </main>
