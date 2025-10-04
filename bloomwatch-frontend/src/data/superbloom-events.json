@@ -12,7 +12,31 @@
     "tags": ["Rare", "Desert"],
     "season": "Spring",
     "peakTime": "March 15 - April 5",
-    "isActive": true
+    "isActive": true,
+    "images": [
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom2.avif",
+      "/images/anza-borrego-bloom.jpg",
+      "https://www.rwongphoto.com/images/xl/RW319-2_web.jpg"
+    ],
+    "satelliteImages": [
+      {
+        "year": 2019,
+        "image": "/images/desert-bloom-1.jpg"
+      },
+      {
+        "year": 2022,
+        "image": "/images/desert-bloom-2.jpg"
+      },
+      {
+        "year": 2024,
+        "image": "/images/desert-bloom-3.jpg"
+      },
+      {
+        "year": 2025,
+        "image": "/images/desert-bloom-4.jpg"
+      }
+    ]
   },
   {
     "id": 2,
@@ -27,7 +51,26 @@
     "tags": ["Common", "Valley"],
     "season": "Spring",
     "peakTime": "April 1 - April 20",
-    "isActive": true
+    "isActive": true,
+    "images": [
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif"
+    ],
+    "satelliteImages": [
+      {
+        "year": 2020,
+        "image": "/images/poppy-fields-1.jpg"
+      },
+      {
+        "year": 2023,
+        "image": "/images/poppy-fields-2.jpg"
+      },
+      {
+        "year": 2025,
+        "image": "/images/poppy-fields-3.jpg"
+      }
+    ]
   },
   {
     "id": 3,
@@ -42,7 +85,28 @@
     "tags": ["Super Rare", "Alpine"],
     "season": "Summer",
     "peakTime": "July 10 - August 5",
-    "isActive": false
+    "isActive": false,
+    "images": [
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif"
+    ],
+    "satelliteImages": [
+      {
+        "year": 2018,
+        "image": "/images/alpine-meadow-1.jpg"
+      },
+      {
+        "year": 2021,
+        "image": "/images/alpine-meadow-2.jpg"
+      },
+      {
+        "year": 2024,
+        "image": "/images/alpine-meadow-3.jpg"
+      }
+    ]
   },
   {
     "id": 4,
@@ -57,7 +121,12 @@
     "tags": ["In Danger", "Coastal"],
     "season": "Spring",
     "peakTime": "May 1 - June 15",
-    "isActive": true
+    "isActive": true,
+    "images": [
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif"
+    ]
   },
   {
     "id": 5,
@@ -72,7 +141,13 @@
     "tags": ["Common", "Prairie"],
     "season": "Summer",
     "peakTime": "August 15 - September 10",
-    "isActive": false
+    "isActive": false,
+    "images": [
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif"
+    ]
   },
   {
     "id": 6,
@@ -87,6 +162,15 @@
     "tags": ["Rare", "Hill Country"],
     "season": "Spring",
     "peakTime": "March 20 - April 15",
-    "isActive": true
+    "isActive": true,
+    "images": [
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif",
+      "/images/cali-bloom.avif"
+    ]
   }
 ]
