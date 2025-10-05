@@ -1,0 +1,11 @@
+[Unit]
+Description=BloomWatch Service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/root/bloomwatch/run.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
