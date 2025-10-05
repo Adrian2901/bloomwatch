@@ -26,7 +26,9 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
     setCurrentImageIndex(0);
     setCurrentSatelliteIndex(0);
     setCurrentGraphIndex(0);
-    setViewMode('satellite'); // Default to satellite view
+    // Default to satellite view if available, otherwise gallery
+    const hasSatelliteImages = selectedEvent?.satelliteImages && selectedEvent.satelliteImages.length > 0;
+    setViewMode(hasSatelliteImages ? 'satellite' : 'gallery');
     setIsZoomed(false);
     setImageLoaded(false);
   }, [selectedEvent?.id]);
@@ -168,16 +170,18 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
       <div className="p-4 border-b border-gray-200 dark:border-gray-800">
         {/* Tab Navigation */}
         <div className="flex gap-1 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
-          <button
-            onClick={() => setViewMode('satellite')}
-            className={`flex-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-              viewMode === 'satellite'
-                ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
-                : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
-            }`}
-          >
-            🛰️ Satellite
-          </button>
+          {satelliteImages.length > 0 && (
+            <button
+              onClick={() => setViewMode('satellite')}
+              className={`flex-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                viewMode === 'satellite'
+                  ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-white shadow-sm'
+                  : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+              }`}
+            >
+              🛰️ Satellite
+            </button>
+          )}
           <button
             onClick={() => setViewMode('gallery')}
             className={`flex-1 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
@@ -301,7 +305,7 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
       </div>
 
       {/* Navigation Bar */}
-      {currentData.length > 1 && (
+      {currentData.length > 0 && (
         <div className="p-4 border-t border-gray-200 dark:border-gray-800">
           {viewMode === 'satellite' ? (
             /* Satellite View - Year Navigation */
@@ -310,33 +314,18 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
                 {satelliteImages.map((satImage, index: number) => (
                   <button
                     key={index}
-                    onClick={() => goToImage(index)}
+                    onClick={satelliteImages.length > 1 ? () => goToImage(index) : undefined}
+                    disabled={satelliteImages.length === 1}
                     className={`flex-shrink-0 px-4 py-2 rounded-lg font-medium transition-all ${
                       index === currentSatelliteIndex
                         ? 'bg-blue-500 text-white shadow-md'
                         : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                     }`}
-                    title={`View satellite image from ${satImage.year}`}
+                    title={satelliteImages.length > 1 ? `View satellite image from ${satImage.year}` : `Satellite image from ${satImage.year}`}
                   >
                     {satImage.year}
                   </button>
                 ))}
-              </div>
-              
-              <div className="flex items-center justify-between mt-3">
-                <div className="text-xs text-gray-500 dark:text-gray-400">
-                  Use arrow keys or click years to navigate satellite imagery
-                </div>
-                <div className="flex items-center gap-1">
-                  {satelliteImages.map((_: any, index: number) => (
-                    <div
-                      key={index}
-                      className={`w-2 h-2 rounded-full ${
-                        index === currentSatelliteIndex ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
-                      }`}
-                    />
-                  ))}
-                </div>
               </div>
             </>
           ) : viewMode === 'gallery' ? (
@@ -346,13 +335,14 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
                 {images.map((image: string, index: number) => (
                   <button
                     key={index}
-                    onClick={() => goToImage(index)}
+                    onClick={images.length > 1 ? () => goToImage(index) : undefined}
+                    disabled={images.length === 1}
                     className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
                       index === currentImageIndex
                         ? 'border-blue-500 ring-2 ring-blue-200'
                         : 'border-gray-300 dark:border-gray-600 hover:border-gray-400'
                     }`}
-                    title={`View image ${index + 1}`}
+                    title={images.length > 1 ? `View image ${index + 1}` : `Image ${index + 1}`}
                   >
                     <Image
                       src={image}
@@ -368,22 +358,6 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
                   </button>
                 ))}
               </div>
-              
-              <div className="flex items-center justify-between mt-3">
-                <div className="text-xs text-gray-500 dark:text-gray-400">  
-                  Use arrow keys or click thumbnails to navigate
-                </div>
-                <div className="flex items-center gap-1">
-                  {images.map((_: string, index: number) => (
-                    <div
-                      key={index}
-                      className={`w-2 h-2 rounded-full ${
-                        index === currentImageIndex ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
             </>
           ) : (
             /* Graph View - Graph Thumbnails */
@@ -392,13 +366,14 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
                 {graphImages.map((graphImage, index: number) => (
                   <button
                     key={index}
-                    onClick={() => goToImage(index)}
+                    onClick={graphImages.length > 1 ? () => goToImage(index) : undefined}
+                    disabled={graphImages.length === 1}
                     className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
                       index === currentGraphIndex
                         ? 'border-blue-500 ring-2 ring-blue-200'
                         : 'border-gray-300 dark:border-gray-600 hover:border-gray-400'
                     }`}
-                    title={graphImage.title || `View graph ${index + 1}`}
+                    title={graphImages.length > 1 ? (graphImage.title || `View graph ${index + 1}`) : (graphImage.title || `Graph ${index + 1}`)}
                   >
                     <Image
                       src={graphImage.image}
@@ -413,22 +388,6 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
                     />
                   </button>
                 ))}
-              </div>
-              
-              <div className="flex items-center justify-between mt-3">
-                <div className="text-xs text-gray-500 dark:text-gray-400">  
-                  Use arrow keys or click thumbnails to navigate graphs
-                </div>
-                <div className="flex items-center gap-1">
-                  {graphImages.map((_: any, index: number) => (
-                    <div
-                      key={index}
-                      className={`w-2 h-2 rounded-full ${
-                        index === currentGraphIndex ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
-                      }`}
-                    />
-                  ))}
-                </div>
               </div>
             </>
           )}

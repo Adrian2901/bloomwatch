@@ -16,26 +16,13 @@
     "isActive": true,
     "images": [
       "/images/cali-bloom.avif",
-      "/images/cali-bloom2.avif",
       "/images/anza-borrego-bloom.jpg",
       "https://www.rwongphoto.com/images/xl/RW319-2_web.jpg"
     ],
     "satelliteImages": [
       {
-        "year": 2019,
-        "image": "/images/desert-bloom-1.jpg"
-      },
-      {
-        "year": 2022,
-        "image": "/images/desert-bloom-2.jpg"
-      },
-      {
-        "year": 2024,
-        "image": "/images/desert-bloom-3.jpg"
-      },
-      {
-        "year": 2025,
-        "image": "/images/desert-bloom-4.jpg"
+        "year": "March 2016 - March 2017",
+        "image": "/images/anza-borrego.gif"
       }
     ],
     "graphImages": [
@@ -182,20 +169,12 @@
     ],
     "satelliteImages": [
       {
-        "year": 2017,
-        "image": "/images/carrizo-plain-sat-1.jpg"
+        "year": "2017 🌺",
+        "image": "/images/carizzo-bloom-2017.webp"
       },
       {
-        "year": 2019,
-        "image": "/images/carrizo-plain-sat-2.jpg"
-      },
-      {
-        "year": 2023,
-        "image": "/images/carrizo-plain-sat-3.jpg"
-      },
-      {
-        "year": 2025,
-        "image": "/images/carrizo-plain-sat-4.jpg"
+        "year": "2017 🌵",
+        "image": "/images/carizzo-nonbloom-2017.webp"
       }
     ]
   },
@@ -222,22 +201,14 @@
     ],
     "satelliteImages": [
       {
-        "year": 2015,
-        "image": "/images/atacama-sat-1.jpg"
-      },
-      {
-        "year": 2017,
-        "image": "/images/atacama-sat-2.jpg"
-      },
-      {
-        "year": 2022,
-        "image": "/images/atacama-sat-3.jpg"
+        "year": 2021,
+        "image": "/images/20211025_BloomAtacamaDesert_Chile.jpg"
       }
     ]
   },
   {
     "id": 7,
-    "title": "Namaqualand Daisy Spectacle",
+    "title": "Namaqualand Spectacle",
     "location": "Namaqualand, South Africa",
     "coordinates": {
       "lat": -30.1500,
@@ -251,25 +222,7 @@
     "peakTimeInterval": ["2025-08-20", "2025-09-30"],
     "isActive": true,
     "images": [
-      "/images/namaqualand-1.jpg",
-      "/images/namaqualand-2.jpg",
-      "/images/namaqualand-3.jpg",
-      "/images/namaqualand-4.jpg",
-      "/images/namaqualand-5.jpg"
-    ],
-    "satelliteImages": [
-      {
-        "year": 2021,
-        "image": "/images/namaqualand-sat-1.jpg"
-      },
-      {
-        "year": 2023,
-        "image": "/images/namaqualand-sat-2.jpg"
-      },
-      {
-        "year": 2024,
-        "image": "/images/namaqualand-sat-3.jpg"
-      }
+      "/images/namaqua-park-flowers.jpeg"
     ]
   },
   {
