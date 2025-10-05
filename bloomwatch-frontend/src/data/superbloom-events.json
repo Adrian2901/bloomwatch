@@ -27,14 +27,10 @@
     ],
     "graphImages": [
       {
-        "year": 2023,
-        "image": "/images/desert-graph-1.jpg",
-        "title": "Bloom Coverage Analysis"
+        "image": "/graphs/anza_superbloom_comparison.png"
       },
       {
-        "year": 2024,
-        "image": "/images/desert-graph-2.jpg",
-        "title": "Temperature vs Bloom Density"
+        "image": "/graphs/anza_time_series_combined.png"
       }
     ]
   },
@@ -54,22 +50,22 @@
     "peakTimeInterval": ["2025-04-01", "2025-04-20"],
     "isActive": true,
     "images": [
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif",
-      "/images/cali-bloom.avif"
+      "/images/antelope_bloom1.webp",
+      "/images/antelope_bloom2.webp",
+      "/images/antelope_bloom3.avif"
     ],
     "satelliteImages": [
       {
-        "year": 2020,
-        "image": "/images/poppy-fields-1.jpg"
+        "year": "April 2024 🌸",
+        "image": "/images/antelope_bloom_sat.jpg"
+      }
+    ],
+    "graphImages": [
+      {
+        "image": "/graphs/antelope_superbloom_comparison.png"
       },
       {
-        "year": 2023,
-        "image": "/images/poppy-fields-2.jpg"
-      },
-      {
-        "year": 2025,
-        "image": "/images/poppy-fields-3.jpg"
+        "image": "/graphs/antelope_time_series.png"
       }
     ]
   },
@@ -89,24 +85,9 @@
     "peakTimeInterval": ["2025-07-15", "2025-08-31"],
     "isActive": true,
     "images": [
-      "/images/valley-flowers-1.jpg",
-      "/images/valley-flowers-2.jpg",
-      "/images/valley-flowers-3.jpg",
-      "/images/valley-flowers-4.jpg"
-    ],
-    "satelliteImages": [
-      {
-        "year": 2020,
-        "image": "/images/valley-flowers-sat-1.jpg"
-      },
-      {
-        "year": 2022,
-        "image": "/images/valley-flowers-sat-2.jpg"
-      },
-      {
-        "year": 2024,
-        "image": "/images/valley-flowers-sat-3.jpg"
-      }
+      "/images/valley_bloom1.jpg",
+      "/images/valley_bloom2.jpg",
+      "/images/valley_bloom3.avif"
     ]
   },
   {
@@ -125,24 +106,10 @@
     "peakTimeInterval": ["2025-02-20", "2025-03-20"],
     "isActive": false,
     "images": [
-      "/images/death-valley-1.jpg",
-      "/images/death-valley-2.jpg",
-      "/images/death-valley-3.jpg",
-      "/images/death-valley-4.jpg"
-    ],
-    "satelliteImages": [
-      {
-        "year": 2016,
-        "image": "/images/death-valley-sat-1.jpg"
-      },
-      {
-        "year": 2019,
-        "image": "/images/death-valley-sat-2.jpg"
-      },
-      {
-        "year": 2023,
-        "image": "/images/death-valley-sat-3.jpg"
-      }
+      "/images/death_bloom1.jpg",
+      "/images/death_bloom2.jpg",
+      "/images/death_bloom3.jpg",
+      "/images/death_bloom4.avif"
     ]
   },
   {
@@ -161,11 +128,9 @@
     "peakTimeInterval": ["2025-03-25", "2025-04-30"],
     "isActive": true,
     "images": [
-      "/images/carrizo-plain-1.jpg",
-      "/images/carrizo-plain-2.jpg",
-      "/images/carrizo-plain-3.jpg",
-      "/images/carrizo-plain-4.jpg",
-      "/images/carrizo-plain-5.jpg"
+      "/images/carizzo_bloom1.webp",
+      "/images/carizzo_bloom2.jpg",
+      "/images/carizzo_bloom3.jpeg"
     ],
     "satelliteImages": [
       {
@@ -175,6 +140,14 @@
       {
         "year": "2017 🌵",
         "image": "/images/carizzo-nonbloom-2017.webp"
+      }
+    ],
+    "graphImages": [
+      {
+        "image": "/graphs/carizzo_superbloom_comparison.png"
+      },
+      {
+        "image": "/graphs/carizzo_time_series_combined.png"
       }
     ]
   },
@@ -194,14 +167,12 @@
     "peakTimeInterval": ["2025-09-15", "2025-11-15"],
     "isActive": false,
     "images": [
-      "/images/atacama-bloom-1.jpg",
-      "/images/atacama-bloom-2.jpg",
-      "/images/atacama-bloom-3.jpg",
-      "/images/atacama-bloom-4.jpg"
+      "/images/atacama-bloom.avif",
+      "/images/atacama-bloom2.webp"
     ],
     "satelliteImages": [
       {
-        "year": 2021,
+        "year": "2021 🌸",
         "image": "/images/20211025_BloomAtacamaDesert_Chile.jpg"
       }
     ]
@@ -222,7 +193,9 @@
     "peakTimeInterval": ["2025-08-20", "2025-09-30"],
     "isActive": true,
     "images": [
-      "/images/namaqua-park-flowers.jpeg"
+      "/images/namaqualand-1.jpg",
+      "/images/namaqualand-2.jpg",
+      "/images/namaqualand-3.jpg"
     ]
   },
   {
@@ -241,29 +214,19 @@
     "peakTimeInterval": ["2025-04-15", "2025-05-10"],
     "isActive": true,
     "images": [
-      "/images/keukenhof-1.jpg",
+      "/images/keukenhof-1.avif",
       "/images/keukenhof-2.jpg",
       "/images/keukenhof-3.jpg",
-      "/images/keukenhof-4.jpg",
-      "/images/keukenhof-5.jpg",
-      "/images/keukenhof-6.jpg"
+      "/images/keukenhof-4.jpg"
     ],
     "satelliteImages": [
       {
-        "year": 2022,
-        "image": "/images/keukenhof-sat-1.jpg"
+        "year": "April 2020 🌸",
+        "image": "/images/keukenhof-bloom.webp"
       },
       {
-        "year": 2023,
-        "image": "/images/keukenhof-sat-2.jpg"
-      },
-      {
-        "year": 2024,
-        "image": "/images/keukenhof-sat-3.jpg"
-      },
-      {
-        "year": 2025,
-        "image": "/images/keukenhof-sat-4.jpg"
+        "year": "November 2020 🌵",
+        "image": "/images/keukenhof-not-bloom.webp"
       }
     ]
   }
