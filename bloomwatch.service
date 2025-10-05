@@ -4,6 +4,7 @@ Description=BloomWatch Service
 [Service]
 Type=simple
 User=root
+WorkingDirectory=/root/bloomwatch
 ExecStart=/root/bloomwatch/run.sh
 Restart=on-failure
 
