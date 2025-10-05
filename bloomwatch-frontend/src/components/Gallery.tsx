@@ -154,7 +154,7 @@ export default function ImageView({ selectedEvent }: ImageViewProps) {
   if (!selectedEvent) {
     return (
       <div className="h-full bg-gradient-to-br from-white via-[var(--primary-subtle)] to-[var(--primary-lightest)] dark:from-gray-800 dark:via-[var(--primary-subtle)] dark:to-gray-700 rounded-xl shadow-lg flex flex-col border border-[var(--primary-light)]">
-        <div className="p-6 border-b-2 border-[var(--primary-light)] dark:border-[var(--primary-light)] bg-gradient-to-r from-transparent to-[var(--primary-lightest)]">
+        <div className="p-6 border-b-2 border-[var(--primary-light)] dark:border-[var(--primary-light)] bg-gradient-to-r from-transparent to-[var(--primary-lightest)] rounded-t-xl">
           <h2 className="text-xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] bg-clip-text text-transparent">
             🖼️ Image Gallery
           </h2>
