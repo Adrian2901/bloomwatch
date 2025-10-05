@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Tag from './Tag';
-import { getBloomStatus } from '../utils/bloomStatus';
+import { useState } from "react";
+import Tag from "./Tag";
+import { getBloomStatus } from "../utils/bloomStatus";
 
 export interface SuperbloomEventData {
   id: number;
@@ -37,7 +37,11 @@ interface SuperbloomEventProps {
   isSelected?: boolean;
 }
 
-export default function SuperbloomEvent({ event, onFocus, isSelected = false }: SuperbloomEventProps) {
+export default function SuperbloomEvent({
+  event,
+  onFocus,
+  isSelected = false,
+}: SuperbloomEventProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const bloomStatus = getBloomStatus(event.peakTimeInterval);
 
@@ -49,12 +53,16 @@ export default function SuperbloomEvent({ event, onFocus, isSelected = false }: 
   };
 
   return (
-    <div 
+    <div
       className={`
-        bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg 
-        transition-all duration-300 cursor-pointer border-2
-        ${isSelected ? 'border-blue-500 ring-2 ring-blue-200' : 'border-transparent hover:border-gray-200'}
-        ${isExpanded ? 'pb-4' : ''}
+        bg-gradient-to-br from-white via-[var(--primary-subtle)] to-white dark:from-gray-800 dark:via-[var(--primary-subtle)] dark:to-gray-800 
+        rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer border-2
+        ${
+          isSelected
+            ? "border-[var(--primary)] ring-4 ring-[var(--primary-lightest)] shadow-[var(--primary-light)] shadow-lg transform scale-[1.02]"
+            : "border-[var(--primary-light)] hover:border-[var(--primary)] hover:shadow-lg"
+        }
+        ${isExpanded ? "pb-4" : ""}
       `}
       onClick={handleClick}
     >
@@ -67,21 +75,35 @@ export default function SuperbloomEvent({ event, onFocus, isSelected = false }: 
             </h3>
             <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clipRule="evenodd"
+                />
               </svg>
               {event.location}
             </div>
           </div>
           <div className="flex items-center gap-2 ml-4">
-            <div className={`w-3 h-3 rounded-full ${
-              bloomStatus.status === 'active' ? 'bg-green-500' : 
-              bloomStatus.status === 'upcoming' && bloomStatus.daysUntil && bloomStatus.daysUntil <= 50 ? 'bg-yellow-500' : 
-              'bg-gray-400'
-            }`} />
+            <div
+              className={`w-3 h-3 rounded-full ${
+                bloomStatus.status === "active"
+                  ? "bg-green-500"
+                  : bloomStatus.status === "upcoming" &&
+                    bloomStatus.daysUntil &&
+                    bloomStatus.daysUntil <= 50
+                  ? "bg-yellow-500"
+                  : "bg-gray-400"
+              }`}
+            />
             <span className="text-xs text-gray-500 dark:text-gray-400">
-              {bloomStatus.status === 'active' ? 'Active' : 
-               bloomStatus.status === 'upcoming' && bloomStatus.daysUntil && bloomStatus.daysUntil <= 50 ? `In ${bloomStatus.daysUntil} days` : 
-               'Inactive'}
+              {bloomStatus.status === "active"
+                ? "Active"
+                : bloomStatus.status === "upcoming" &&
+                  bloomStatus.daysUntil &&
+                  bloomStatus.daysUntil <= 50
+                ? `In ${bloomStatus.daysUntil} days`
+                : "Inactive"}
             </span>
           </div>
         </div>
@@ -100,26 +122,35 @@ export default function SuperbloomEvent({ event, onFocus, isSelected = false }: 
 
         {/* Peak time info */}
         <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-          <span className="font-medium">Peak Time:</span> {event.peakTime} • {event.season}
+          <span className="font-medium">Peak Time:</span> {event.peakTime} •{" "}
+          {event.season}
         </div>
 
         {/* Expansion indicator */}
         <div className="flex justify-center">
-          <svg 
-            className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
-            fill="currentColor" 
+          <svg
+            className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+              isExpanded ? "rotate-180" : ""
+            }`}
+            fill="currentColor"
             viewBox="0 0 20 20"
           >
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+            <path
+              fillRule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
           </svg>
         </div>
       </div>
 
       {/* Expanded content */}
-      <div className={`
+      <div
+        className={`
         overflow-hidden transition-all duration-300 ease-in-out
-        ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
-      `}>
+        ${isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+      `}
+      >
         <div className="px-4 pb-2 pt-2 border-t border-gray-200 dark:border-gray-700">
           <h4 className="font-medium text-gray-900 dark:text-white mb-2">
             Detailed Description
@@ -127,7 +158,7 @@ export default function SuperbloomEvent({ event, onFocus, isSelected = false }: 
           <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
             {event.fullDescription}
           </p>
-          
+
           {/* Coordinates for debugging/development */}
           <div className="mt-3 text-xs text-gray-400 dark:text-gray-500">
             Coordinates: {event.coordinates.lat}, {event.coordinates.lng}
